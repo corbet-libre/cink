@@ -1,32 +1,31 @@
 # Installation and distribution
 
-The main branch prepares 0.2.0 under LGPL-3.0-only WITH LGPL-3.0-linking-exception. It has not been published
-to registries. The existing releases documented below keep their original
+The main branch ships 0.2.1 under LGPL-3.0-only WITH LGPL-3.0-linking-exception, published to registries. The existing releases documented below keep their original
 license grants; this change does not replace their artifacts.
 
 ## JavaScript and Rust
 
 Use Cargo for Rust and npm, pnpm, Yarn, or Bun for JavaScript. These JavaScript
 package managers share the npm registry; each consumes the same package.
-Deno can use `npm:@corbet-foss/cink`. The browser export bundles runtime
+Deno can use `npm:@corbet-labs/cink`. The browser export bundles runtime
 dependencies and needs no import map. The declared Rust minimum is 1.94. Release checks use the worker's current stable compiler; a separate minimum-version check is required to
 verify that lower bound.
 
 ## Python and the command line
 
 The pure Python package requires Python 3.10+ and is published on
-[PyPI](https://pypi.org/project/cink/0.2.0/). Install this release with pip
+[PyPI](https://pypi.org/project/cink/0.2.1/). Install this release with pip
 or uv in your Python environment:
 
 ```sh
-python -m pip install cink==0.2.0
+python -m pip install cink==0.2.1
 ```
 
 ```sh
-uv pip install cink==0.2.0
+uv pip install cink==0.2.1
 ```
 
-For a uv project, `uv add cink==0.2.0` adds the package to your dependencies.
+For a uv project, `uv add cink==0.2.1` adds the package to your dependencies.
 
 After installation, functions can be called from Python or through either CLI
 entrypoint:
@@ -41,27 +40,27 @@ object of keyword arguments. Use `-` to read arguments from stdin. It writes
 JSON to stdout; errors use stderr and a nonzero exit status. Image bytes in
 the `normalize` result are base64 strings.
 
-For an isolated CLI environment, use `pipx install cink==0.2.0` or
-`uv tool install cink==0.2.0`.
+For an isolated CLI environment, use `pipx install cink==0.2.1` or
+`uv tool install cink==0.2.1`.
 
 The wheel contains no native extensions and is platform independent. Release
 evidence records the Python version and operating system actually exercised.
 Verified wheels and source distributions are also attached to the
-[GitHub release](https://github.com/corbet-foss/cink/releases/tag/v0.2.0).
+[GitHub release](https://github.com/corbet-foss/cink/releases/tag/v0.2.1).
 
 ## JSR
 
-The 0.2.0 release targets
-[`@corbet-foss/cink`](https://jsr.io/@corbet-foss/cink@0.2.0):
+The 0.2.1 release targets
+[`@corbet-labs/cink`](https://jsr.io/@corbet-labs/cink@0.2.1):
 
 ```sh
-deno add jsr:@corbet-foss/cink@0.2.0
+deno add jsr:@corbet-labs/cink@0.2.1
 ```
 
 ## Typst
 
-Download `cink-0.2.0-typst.tar.gz` from the matching GitHub release and
-extract its contents into `typst/packages/local/cink/0.2.0` under your
+Download `cink-0.2.1-typst.tar.gz` from the matching GitHub release and
+extract its contents into `typst/packages/local/cink/0.2.1` under your
 [Typst data directory](https://github.com/typst/packages#local-packages):
 
 | System | Data directory |
@@ -71,7 +70,7 @@ extract its contents into `typst/packages/local/cink/0.2.0` under your
 | Windows | `%APPDATA%` |
 
 ```typst
-#import "@local/cink:0.2.0": *
+#import "@local/cink:0.2.1": *
 ```
 
 The archive includes its manifest, tables, source, and licenses. CI compiles
