@@ -55,6 +55,28 @@ use cink::image_snippet;
 assert_eq!(image_snippet("/signature.png", 31.5, None), "#image(\"/signature.png\", height: 31.5pt)");
 ```
 
+### Typst in Rust hosts
+
+The crate also ships the Typst package. Applications that embed the Typst
+compiler can register it from `cink::typst` instead of downloading or
+vendoring a copy, so Rust and Typst always come from the same release.
+`FILES` holds package-relative paths (`typst.toml`, `typst/ink.typ`, and the `tables/` the Typst sources read)
+with their bytes; `spec()` is the import specification.
+
+```rust
+use cink::typst::{FILES, NAME, NAMESPACE, VERSION, spec};
+
+assert_eq!((NAMESPACE, NAME), ("preview", "cink"));
+assert_eq!(spec(), format!("@preview/cink:{VERSION}"));
+for (path, bytes) in FILES {
+    // Serve `bytes` for `path` inside the package `spec()` in your Typst world.
+    let _ = (path, bytes.len());
+}
+```
+
+Documents then import the package as usual, for example
+`#import "@preview/cink:0.2.2": signature-image`.
+
 ## Python
 
 ```python
@@ -103,7 +125,7 @@ for generation, verification, and publication commands.
 
 ## License
 
-Copyright 2026 Julian Y. Richard Corbet. The 0.2.1 release line is licensed
+Copyright 2026 Julian Y. Richard Corbet. The 0.2.2 release line is licensed
 under [LGPL-3.0-only](https://github.com/corbet-foss/cink/blob/main/LICENSES/LGPL-3.0-only.txt)
 [WITH LGPL-3.0-linking-exception](https://github.com/corbet-foss/cink/blob/main/LICENSES/LGPL-3.0-linking-exception.txt),
 with the incorporated [GPL version 3](https://github.com/corbet-foss/cink/blob/main/LICENSES/GPL-3.0-only.txt).
@@ -111,7 +133,7 @@ Combined works may link statically or dynamically without relinking duties;
 library modifications stay LGPL. Applications can use a different license
 subject to the LGPL's conditions.
 Version 0.1.4 retains Apache-2.0. The installation examples above refer to those available
-releases; 0.2.1 is published to registries.
+releases; 0.2.2 is published to registries.
 
 See the [licensing notes](https://github.com/corbet-foss/cink/blob/main/LICENSE.md) for distribution conditions and retained notices.
 Contributions use the [Contributor License Agreement](https://github.com/corbet-foss/cink/blob/main/CLA.md).

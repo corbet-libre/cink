@@ -1,6 +1,6 @@
 [package]
 name = "cink"
-version = "0.2.1"
+version = "0.2.2"
 edition = "2024"
 rust-version = "1.94"
 description = "Handwritten signature image rendering for correspondence: validate, size, place, verify. Pixels, not signatures."
@@ -11,7 +11,7 @@ documentation = "https://docs.rs/cink"
 keywords = ["i18n", "correspondence", "locale"]
 categories = ["internationalization", "text-processing"]
 
-include = ["Cargo.toml", "Cargo.lock", "src/**", "tables/**", "tests/**", "README.md", "CHANGELOG.md", "LICENSE", "LICENSE.md", "LICENSES/**"]
+include = ["Cargo.toml", "Cargo.lock", "src/**", "tables/**", "tests/**", "typst.toml", "typst/**", "README.md", "CHANGELOG.md", "LICENSE", "LICENSE.md", "LICENSES/**"]
 
 [lints.rust]
 unsafe_code = "forbid"

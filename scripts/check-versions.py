@@ -24,6 +24,10 @@ for manifest, key in (("py/pyproject.toml", "project"), ("typst.toml", "package"
     metadata = tomllib.loads((root / manifest).read_text())[key]
     assert metadata["version"] == version
     assert metadata["license"] == license_id
+# The crate ships the Typst package (src/typst.rs embeds it; its tests compare
+# the embedded files and identity with disk).
+assert tomllib.loads((root / "typst.toml").read_text())["package"]["name"] == name
+assert {"typst.toml", "typst/**", "tables/**"} <= set(tomllib.loads((root / "Cargo.toml").read_text())["package"]["include"])
 expected = {path.name: path.read_bytes() for path in (root / "LICENSES").iterdir() if path.is_file()}
 for filename in ("LGPL-3.0-only.txt", "LGPL-3.0-linking-exception.txt", "GPL-3.0-only.txt"):
     assert expected[filename], f"Missing complete {filename}"

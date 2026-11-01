@@ -10,12 +10,15 @@
 //!
 //! Limits live as data in `tables/defaults.json`; `tests/vectors/*.json`
 //! with fixtures in `tests/fixtures/` is the executable contract every
-//! language port runs.
+//! language port runs. [`typst`] embeds the Typst package files for Rust
+//! hosts that run Typst in-process.
 //!
 //! Same input always yields the same output: no models, no I/O.
 
 use base64::{Engine as _, engine::general_purpose::STANDARD};
 use std::sync::LazyLock;
+
+pub mod typst;
 
 #[derive(serde::Deserialize)]
 struct Defaults {
