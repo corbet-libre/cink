@@ -4,7 +4,8 @@ version = "0.2.2"
 edition = "2024"
 description = "Handwritten signature image rendering for correspondence: validate, size, place, verify. Pixels, not signatures."
 license = "LGPL-3.0-only WITH LGPL-3.0-linking-exception"
-repository = "https://github.com/corbet-foss/cink"
+repository = "https://git.corbet.ch/corbet-libre/cink"
+homepage = "https://git.corbet.ch/corbet-libre/cink"
 
 documentation = "https://docs.rs/cink"
 keywords = ["i18n", "correspondence", "locale"]
